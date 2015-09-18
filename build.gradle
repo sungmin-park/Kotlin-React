@@ -19,12 +19,19 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-js-library:$kotlin_version"
 
     testCompile 'junit:junit:4.12'
+    testCompile 'org.webjars:qunit:1.18.0'
 }
 
 compileKotlin2Js {
     kotlinOptions.metaInfo = true
     kotlinOptions.sourceMap = true
     kotlinOptions.outputFile = "${projectDir}/web/js/kotlin-react.js"
+}
+
+compileTestKotlin2Js {
+    kotlinOptions.metaInfo = true
+    kotlinOptions.sourceMap = true
+    kotlinOptions.outputFile = "${projectDir}/web/js/kotlin-react-test.js"
 }
 
 clean.doLast { ant.delete(dir: "web/js") }
